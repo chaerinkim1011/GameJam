@@ -218,7 +218,6 @@ RectTransform:
   - {fileID: 2055813323}
   - {fileID: 769209185}
   - {fileID: 466546494}
-  - {fileID: 2074029509}
   - {fileID: 1072149109}
   - {fileID: 179759780}
   - {fileID: 144806530}
@@ -455,6 +454,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362359170}
   m_CullTransparentMesh: 1
+--- !u!1 &425183363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425183365}
+  - component: {fileID: 425183364}
+  m_Layer: 0
+  m_Name: SecondStory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425183364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425183363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f800173802fa442a49a57ccf1cb546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SecondStory
+  text:
+  - "\uACA8\uC6B0 \uC5C6\uC574\uB124.. \uC774\uC81C \uB354 \uC5C6\uACA0..."
+  - "\uC5B4\uAC90\uC5D0 \uC5B4\uAC90~\uC5D0 \uC5B4\uAC90~\uC5D0 \uC5B4\uAC90~"
+  - ??????
+  - "\uC5B4\uAC90\uC5D0 \uC5B4\uAC90~\uC5D0 \uC5B4\uAC90~\uC5D0 \uC5B4\uAC90~"
+  - ??????????????????
+  - "\uB9AC\uC4F4!!"
+  - "\uC9C4\uC9DC \uC65C\uC800\uB7EC\uACE0 \uC0B4\uC9C0"
+  - "\uC774\uB807\uAC8C \uC65C \uB0B4\uAC00 \uB610? \uB108\uC758 \uC9D1\uC555\uC5D0
+    \uB610~ \uC11C\uC788\uB294 \uAC74~\uC9C0? \uB300\uCCB4 \uB09C \uBC14\uBCF8~\uC9C0?"
+  - "\uD558... \uC65C \uB0B4\uAC00 \uCABD\uD314\uB9AC\uC9C0"
+  - "\uD559\uC0DD?"
+  - "\uB124?"
+  - "\uD3F0 \uC548\uD544\uC694\uD558\uB098?"
+  - "\uC544... \uC544\uB1E8 \uAD1C\u314A.."
+  - "\uD558\uB098\uB9CC \uC0AC\uC918~ \uD558\uB098\uC5D0 5\uB9CC\uC6D0!"
+  - "\uC544 \uD544\uC694\uC5C6\uB2E4\uACE0\uC694!"
+  - "\uC0AC\uB77C\uACE0 \uC774 @#!@^!#$@#$"
+  - "\uC0AC\uB2EC\uB77C\uC796\uC544! \uC0AC! \uC0AC\uB77C\uACE0!"
+  - "\uC544\uC624!!!!"
+  MCharBad: {fileID: 466546493}
+  MCharSurp: {fileID: 179759779}
+  MCharSigh: {fileID: 1072149108}
+  AgainAgain: {fileID: 144806529}
+  JapSang: {fileID: 362359170}
+  Texts: {fileID: 2055813324}
+  Name: {fileID: 769209186}
+--- !u!4 &425183365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425183363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 978.2359, y: 505.87225, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &466546493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,81 +1199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055813322}
   m_CullTransparentMesh: 1
---- !u!1 &2074029508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2074029509}
-  - component: {fileID: 2074029511}
-  - component: {fileID: 2074029510}
-  m_Layer: 5
-  m_Name: MCharSmile
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2074029509
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074029508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 30273281}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 655, y: -92}
-  m_SizeDelta: {x: 538.901, y: 726.2816}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2074029510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074029508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 7706322404544524163, guid: ec690aa12b13e3e4580b56934a2f3d79, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2074029511
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074029508}
-  m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1211,3 +1206,4 @@ SceneRoots:
   - {fileID: 1980942052}
   - {fileID: 30273281}
   - {fileID: 1281139205}
+  - {fileID: 425183365}
