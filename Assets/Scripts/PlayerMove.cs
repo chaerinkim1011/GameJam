@@ -3,24 +3,20 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float maxSpeed;
-    public float jumpPower;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
+    Animator anim;
 
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        //Jump
-        if (Input.GetButtonDown("Jump"))
-        {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        }
 
         //Stop Speed
         if (Input.GetButtonUp("Horizontal"))
@@ -48,5 +44,6 @@ public class PlayerMove : MonoBehaviour
             rigid.linearVelocity = new Vector2(maxSpeed, rigid.linearVelocity.y);
         else if (rigid.linearVelocity.x < maxSpeed*(-1))
             rigid.linearVelocity = new Vector2(maxSpeed * (-1), rigid.linearVelocity.y);
+
     }
 }

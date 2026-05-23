@@ -94,5 +94,6 @@ public class MainStory : MonoBehaviour
         {
             Name.text = "나";
         }
+
     }
 }
