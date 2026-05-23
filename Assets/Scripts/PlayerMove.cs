@@ -26,9 +26,13 @@ public class PlayerMove : MonoBehaviour
 
         //Direction Sprite
         if(Input.GetButtonDown("Horizontal"))
-        {
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-        }
+        spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+
+        //Animation
+        if (Mathf.Abs(rigid.linearVelocity.x) < 0.3)
+            anim.SetBool("isRunning", false);
+        else
+            anim.SetBool("isRunning", true);
     }
 
     private void FixedUpdate()
