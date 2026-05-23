@@ -37,4 +37,8 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("1stStory");
     }
+    public void OnButtonClickGoTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }
