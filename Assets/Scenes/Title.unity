@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419c3fdf14be9b6448c8e76b55de7700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buttons
+  Stage: {fileID: 0}
 --- !u!4 &423329542
 Transform:
   m_ObjectHideFlags: 0

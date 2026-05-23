@@ -13,7 +13,7 @@ public class SecondStory : MonoBehaviour
         "??????????????????",
         "리쓴!!",
         "진짜 왜저러고 살지",
-        "이렇게 왜 내가 또? 너의 집압에 또~ 서있는 건~지? 대체 난 바본~지?",
+        "이렇게 왜 내가 또? 너의 집 앞에 또~ 서있는 건~지? 대체 난 바본~지?",
         "하... 왜 내가 쪽팔리지",
         "학생?",
         "네?",
@@ -29,6 +29,7 @@ public class SecondStory : MonoBehaviour
     public GameObject MCharBad;
     public GameObject MCharSurp;
     public GameObject MCharSigh;
+    public GameObject MCharMad;
 
     public GameObject AgainAgain;
     public GameObject JapSang;
@@ -42,6 +43,7 @@ public class SecondStory : MonoBehaviour
         MCharBad.gameObject.SetActive(false);
         MCharSigh.gameObject.SetActive(false);
         MCharSurp.gameObject.SetActive(false);
+        MCharMad.gameObject.SetActive(false);
 
         AgainAgain.gameObject.SetActive(false);
         JapSang.gameObject.SetActive(false);
@@ -139,7 +141,7 @@ public class SecondStory : MonoBehaviour
                 break;
             case 17:
                 Name.text = "나";
-                MCharBad.gameObject.SetActive(true);
+                MCharMad.gameObject.SetActive(true);
                 JapSang.gameObject.SetActive(false);
                 break;
             default:
