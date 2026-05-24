@@ -8,7 +8,10 @@ public class Buttons : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Stage.gameObject.SetActive(false);
+        if (Stage != null)
+        {
+            Stage.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -27,11 +30,17 @@ public class Buttons : MonoBehaviour
     }
     public void OnButtonClickStage()
     {
-        Stage.gameObject.SetActive(true);
+        if (Stage != null)
+        {
+            Stage.gameObject.SetActive(true);
+        }
     }
     public void OnButtonClickBack()
     {
-        Stage.gameObject.SetActive(false);
+        if (Stage != null)
+        {
+            Stage.gameObject.SetActive(false);
+        }
     }
     public void OnButtonClickStage1()
     {

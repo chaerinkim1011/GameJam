@@ -1368,7 +1368,7 @@ MonoBehaviour:
   TimeTxt: {fileID: 991768360}
   Min: 0
   Sec: 0
-  time: 60
+  time: 30
 --- !u!1 &1007261333
 GameObject:
   m_ObjectHideFlags: 0
