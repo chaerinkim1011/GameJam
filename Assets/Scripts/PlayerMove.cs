@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public float maxSpeed;
     public int damage = 10;
     public float attackRange = 1.5f;
+    public Vector2 attackBoxSize = new Vector2(3f, 1.5f);
     public float minX = -8.5f;
     public float maxX = 48.8f;
     public string badEndingSceneName = "BadEnding";
@@ -15,7 +16,6 @@ public class PlayerMove : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
     Animator anim;
-    EnemyMove enemy;
     bool isAttacking;
     float attackTimer;
 
@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         hp = 200;
+        attackRange = 3f;
+        attackBoxSize = new Vector2(3f, 1.5f);
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -91,42 +93,42 @@ public class PlayerMove : MonoBehaviour
 
     void AttackEnemy()
     {
-        EnemyMove target = enemy;
+        EnemyMove target = null;
+        float closestDistance = attackRange;
+        float direction = spriteRenderer.flipX ? -1f : 1f;
+        Vector2 attackCenter = (Vector2)transform.position + Vector2.right * direction * (attackRange * 0.5f);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(attackCenter, attackBoxSize, 0f);
 
-        if (target == null)
+        foreach (Collider2D hit in hits)
         {
-            float direction = spriteRenderer.flipX ? -1f : 1f;
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
+            EnemyMove foundEnemy = hit.GetComponent<EnemyMove>();
 
-            foreach (Collider2D hit in hits)
-            {
-                EnemyMove foundEnemy = hit.GetComponent<EnemyMove>();
+            if (foundEnemy == null)
+                continue;
 
-                if (foundEnemy == null)
-                    continue;
+            float distance = Vector2.Distance(transform.position, foundEnemy.transform.position);
 
-                float enemyDirection = Mathf.Sign(foundEnemy.transform.position.x - transform.position.x);
+            if (distance > closestDistance)
+                continue;
 
-                if (enemyDirection == direction)
-                {
-                    target = foundEnemy;
-                    break;
-                }
-            }
+            closestDistance = distance;
+            target = foundEnemy;
         }
 
         if (target != null)
             target.SetDamage(damage);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnDrawGizmosSelected()
     {
-        enemy = collision.gameObject.GetComponent<EnemyMove>();
-    }
+        float direction = 1f;
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<EnemyMove>() == enemy)
-            enemy = null;
+        if (spriteRenderer != null)
+            direction = spriteRenderer.flipX ? -1f : 1f;
+
+        Vector2 attackCenter = (Vector2)transform.position + Vector2.right * direction * (attackRange * 0.5f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(attackCenter, attackBoxSize);
     }
 }

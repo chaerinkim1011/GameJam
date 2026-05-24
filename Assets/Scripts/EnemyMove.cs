@@ -20,6 +20,7 @@ public class EnemyMove : MonoBehaviour
 
     void Awake()
     {
+        hp = 100;
         damage = 10;
         attackRange = 2.5f;
         attackTime = 0.7f;
@@ -31,6 +32,14 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
+        if (Player == null)
+        {
+            PlayerMove playerMove = FindAnyObjectByType<PlayerMove>();
+
+            if (playerMove != null)
+                Player = playerMove.transform;
+        }
+
         if (Player == null || rigid == null || spriteRenderer == null || anim == null)
             return;
 
