@@ -3085,7 +3085,6 @@ GameObject:
   - component: {fileID: 1813676009}
   - component: {fileID: 1813676008}
   - component: {fileID: 1813676007}
-  - component: {fileID: 1813676011}
   - component: {fileID: 1813676012}
   m_Layer: 0
   m_Name: Enemy
@@ -3159,7 +3158,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.521212, y: 8.327272}
+    oldSize: {x: 3.72, y: 5.64}
     newSize: {x: 2.33, y: 5.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3216,7 +3215,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3080578215920850068, guid: 225eb42d07cedc443a2cf89484551ac6, type: 3}
+  m_Sprite: {fileID: 3871442152384901721, guid: 931fd855cf533bf48b75e40907feb9a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3241,26 +3240,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1813676011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813676006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9559cce896562b42af73c744419e9a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
-  hp: 100
-  damage: 5
-  nextMove: 0
-  Player: {fileID: 2006446049}
-  moveSpeed: 3
-  attackRange: 1.5
-  attackTime: 0.5
-  attackDelay: 1
 --- !u!95 &1813676012
 Animator:
   serializedVersion: 7
