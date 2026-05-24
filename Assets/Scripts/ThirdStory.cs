@@ -16,7 +16,7 @@ public class ThirdStory : MonoBehaviour
         "???",
         "이 천둥, 좌우상하 동시에",
         "콰가과가광 꽝쾅!!!!!!!",
-        "ㅅㅂ???????",
+        "아아니이익!!!!!!!!",
     };
 
     public GameObject MCharBad;
@@ -53,6 +53,8 @@ public class ThirdStory : MonoBehaviour
                 break;
             case 1:
                 Name.text = "나";
+                MCharSigh.gameObject.SetActive(false);
+                MCharBad.gameObject.SetActive(true);
                 break;
             case 2:
                 Name.text = "나";
@@ -62,45 +64,34 @@ public class ThirdStory : MonoBehaviour
                 break;
             case 4:
                 Name.text = "나";
+                MCharSigh.gameObject.SetActive(true);
+                MCharBad.gameObject.SetActive(false);
                 break;
             case 5:
                 Name.text = "해설";
+                MCharSigh.gameObject.SetActive(false);
                 break;
             case 6:
-                Name.text = "나";
+                Name.text = "???";
+                Jarban.gameObject.SetActive(true);
                 break;
             case 7:
-                Name.text = "어게인빌런";
+                Name.text = "나";
+                Jarban.gameObject.SetActive(false);
+                MCharSurp.gameObject.SetActive(true);
                 break;
             case 8:
-                Name.text = "나";
+                Name.text = "자르반84세";
+                Jarban.gameObject.SetActive(true);
+                MCharSurp.gameObject.SetActive(false);
                 break;
             case 9:
-                Name.text = "???";
+                Name.text = "자르반84세";
                 break;
             case 10:
                 Name.text = "나";
-                break;
-            case 11:
-                Name.text = "잡상인빌런";
-                break;
-            case 12:
-                Name.text = "나";
-                break;
-            case 13:
-                Name.text = "잡상인빌런";
-                break;
-            case 14:
-                Name.text = "나";
-                break;
-            case 15:
-                Name.text = "잡상인빌런";
-                break;
-            case 16:
-                Name.text = "잡상인빌런";
-                break;
-            case 17:
-                Name.text = "나";
+                Jarban.gameObject.SetActive(false);
+                MCharMad.gameObject.SetActive(true);
                 break;
             default:
                 break;
