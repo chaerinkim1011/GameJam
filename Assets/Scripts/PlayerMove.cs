@@ -23,7 +23,6 @@ public class PlayerMove : MonoBehaviour
         {
 
         }
-
         //Stop Speed
         if (Input.GetButtonUp("Horizontal"))
         {
