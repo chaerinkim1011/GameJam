@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/1stStory.unity
-    guid: 02e7be7edc77ba4469ec45e9230426dd
-  - enabled: 1
-    path: Assets/Scenes/2ndStory.unity
-    guid: 2b72690a1e3025d48a670f08022c5466
-  - enabled: 1
-    path: Assets/Scenes/3rdStory.unity
-    guid: b5c8de2586e838040817c45ec22a2cd5
-  - enabled: 1
-    path: Assets/Scenes/BadEnding.unity
-    guid: 9d7a1bdd43fccd045bd1e5899b35555f
-  - enabled: 1
-    path: Assets/Scenes/HappyEnding.unity
-    guid: a3a7436824e617d4f94555f285393bd3
+    path: Assets/Scenes/Title.unity
+    guid: 470303cdb58ea0b44ac20969c7abbd08
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 8bfee5c03c00165468dfce3aea7d5ea7
   - enabled: 1
+    path: Assets/Scenes/1stStory.unity
+    guid: 02e7be7edc77ba4469ec45e9230426dd
+  - enabled: 1
     path: Assets/Scenes/Round1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/2ndStory.unity
+    guid: 2b72690a1e3025d48a670f08022c5466
   - enabled: 1
     path: Assets/Scenes/Round2.unity
     guid: 8eaf52c3a7ab56f4d928e444a326ae89
   - enabled: 1
+    path: Assets/Scenes/3rdStory.unity
+    guid: b5c8de2586e838040817c45ec22a2cd5
+  - enabled: 1
     path: Assets/Scenes/Round3.unity
     guid: 7159e46cf73808843b138c809e583605
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 470303cdb58ea0b44ac20969c7abbd08
+    path: Assets/Scenes/HappyEnding.unity
+    guid: a3a7436824e617d4f94555f285393bd3
+  - enabled: 1
+    path: Assets/Scenes/BadEnding.unity
+    guid: 9d7a1bdd43fccd045bd1e5899b35555f
   m_configObjects: {}
