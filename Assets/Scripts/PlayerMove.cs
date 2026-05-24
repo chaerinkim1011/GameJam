@@ -1,13 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    public int hp = 100;
+    public int hp = 200;
     public int mp = 100;
     public float maxSpeed;
     public int damage = 10;
+    public float attackRange = 1.5f;
     public float minX = -8.5f;
     public float maxX = 48.8f;
+    public string badEndingSceneName = "BadEnding";
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
@@ -20,6 +23,7 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
+        hp = 200;
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -35,8 +39,7 @@ public class PlayerMove : MonoBehaviour
             anim.SetBool("isAttacking", true);
             anim.Play("Player_Attack", 0, 0f);
 
-            if (enemy != null)
-                enemy.SetDamage(damage);
+            AttackEnemy();
         }
 
         if (isAttacking)
@@ -80,7 +83,40 @@ public class PlayerMove : MonoBehaviour
         hp -= damage;
 
         if (hp <= 0)
+        {
             hp = 0;
+            SceneManager.LoadScene(badEndingSceneName);
+        }
+    }
+
+    void AttackEnemy()
+    {
+        EnemyMove target = enemy;
+
+        if (target == null)
+        {
+            float direction = spriteRenderer.flipX ? -1f : 1f;
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
+
+            foreach (Collider2D hit in hits)
+            {
+                EnemyMove foundEnemy = hit.GetComponent<EnemyMove>();
+
+                if (foundEnemy == null)
+                    continue;
+
+                float enemyDirection = Mathf.Sign(foundEnemy.transform.position.x - transform.position.x);
+
+                if (enemyDirection == direction)
+                {
+                    target = foundEnemy;
+                    break;
+                }
+            }
+        }
+
+        if (target != null)
+            target.SetDamage(damage);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
