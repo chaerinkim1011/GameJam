@@ -17,13 +17,10 @@ public class SecondStory : MonoBehaviour
         "하... 왜 내가 쪽팔리지",
         "학생?",
         "네?",
-        "폰 안필요하나?",
-        "아... 아뇨 괜ㅊ..",
-        "하나만 사줘~ 하나에 5만원!",
-        "아 필요없다고요!",
-        "사라고 이 @#!@^!#$@#$",
-        "사달라잖아! 사! 사라고!",
-        "아오!!!!"
+        "나랑 같이 어게인 어게인 부르자~",
+        "아 괜찮...",
+        "같이 안부르면.. 억지로 부르게 할거야 으흐흐흐ㅡㅎㅎㅎ",
+        "아아아악..!!!!"
     };
 
     public GameObject MCharBad;
@@ -32,7 +29,6 @@ public class SecondStory : MonoBehaviour
     public GameObject MCharMad;
 
     public GameObject AgainAgain;
-    public GameObject JapSang;
 
     public TMP_Text Texts;
     public TMP_Text Name;
@@ -46,7 +42,6 @@ public class SecondStory : MonoBehaviour
         MCharMad.gameObject.SetActive(false);
 
         AgainAgain.gameObject.SetActive(false);
-        JapSang.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -101,48 +96,34 @@ public class SecondStory : MonoBehaviour
                 AgainAgain.gameObject.SetActive(false);
                 break;
             case 9:
-                Name.text = "???";
+                Name.text = "어게인빌런";
                 MCharSigh.gameObject.SetActive(false);
-                JapSang.gameObject.SetActive(true);
+                AgainAgain.gameObject.SetActive(true);
                 break;
             case 10:
                 Name.text = "나";
                 MCharSurp.gameObject.SetActive(true);
-                JapSang.gameObject.SetActive(false);
+                AgainAgain.gameObject.SetActive(false);
                 break;
             case 11:
-                Name.text = "잡상인빌런";
+                Name.text = "어게인빌런";
                 MCharSurp.gameObject.SetActive(false);
-                JapSang.gameObject.SetActive(true);
+                AgainAgain.gameObject.SetActive(true);
                 break;
             case 12:
                 Name.text = "나";
                 MCharSurp.gameObject.SetActive(true);
-                JapSang.gameObject.SetActive(false);
+                AgainAgain.gameObject.SetActive(false);
                 break;
             case 13:
-                Name.text = "잡상인빌런";
+                Name.text = "어게인빌런";
                 MCharSurp.gameObject.SetActive(false);
-                JapSang.gameObject.SetActive(true);
+                AgainAgain.gameObject.SetActive(true);
                 break;
             case 14:
                 Name.text = "나";
-                MCharBad.gameObject.SetActive(true);
-                JapSang.gameObject.SetActive(false);
-                break;
-            case 15:
-                Name.text = "잡상인빌런";
-                MCharSurp.gameObject.SetActive(false);
-                JapSang.gameObject.SetActive(true);
-                break;
-            case 16:
-                Name.text = "잡상인빌런";
-                JapSang.gameObject.SetActive(true);
-                break;
-            case 17:
-                Name.text = "나";
                 MCharMad.gameObject.SetActive(true);
-                JapSang.gameObject.SetActive(false);
+                AgainAgain.gameObject.SetActive(false);
                 break;
             default:
                 SceneManager.LoadScene("Round2");
