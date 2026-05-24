@@ -18,6 +18,12 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
+        //Attack Animation
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
+
         //Stop Speed
         if (Input.GetButtonUp("Horizontal"))
         {
