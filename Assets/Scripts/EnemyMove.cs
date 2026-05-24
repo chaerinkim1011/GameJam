@@ -6,6 +6,7 @@ public class EnemyMove : MonoBehaviour
 {
 
     Rigidbody2D rigid;
+    SpriteRenderer spriteRenderer;
     public float nextMove;
     public Transform Player;
     public float moveSpeed = 2.0f;
@@ -15,6 +16,7 @@ public class EnemyMove : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
        
     }
 
@@ -28,6 +30,8 @@ public class EnemyMove : MonoBehaviour
         {
             nextMove = -1;
         }
+
+        spriteRenderer.flipX = nextMove == 1;
 
         //Animation
         if (Mathf.Abs(rigid.linearVelocity.x) < 0.3)
