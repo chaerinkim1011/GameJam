@@ -119,6 +119,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &210987654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210987655}
+  - component: {fileID: 210987656}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210987655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210987654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48, y: -1.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210987656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210987654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c62dded7f0a4bb49b42f55a0e92f3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemyPrefab: {fileID: 1813676006}
+  player: {fileID: 2006446049}
+  spawnPosition: {x: 48, y: -1.11}
+  spawnDelay: 3
 --- !u!1 &274688738
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,11 +467,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.39, y: 2, z: -10}
+  m_LocalPosition: {x: 25.99, y: 0.38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2006446049}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -437,13 +485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98fccb0f850b4e4ca7d7a7cea177fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  cameraPosition: {x: 0, y: 0, z: -10}
-  playerTransform: {fileID: 2006446049}
-  center: {x: 0, y: 0}
-  mapSize: {x: 0, y: 0}
-  cameraMoveSpeed: 0
-  height: 0
-  width: 0
+  player: {fileID: 2006446049}
+  minX: -1.2
+  maxX: 41.6
 --- !u!1 &534886215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1368,7 @@ MonoBehaviour:
   TimeTxt: {fileID: 991768360}
   Min: 0
   Sec: 0
-  time: 180
+  time: 30
 --- !u!1 &1007261333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,8 +2288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24d3c1164b35b46b55770cce40ffa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HP
-  MaxHP: 100
-  currentHP: 100
+  MaxHP: 200
+  currentHP: 200
   HPBar: {fileID: 1382760754}
 --- !u!1 &1422688080
 GameObject:
@@ -3209,9 +3253,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9559cce896562b42af73c744419e9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  hp: 100
+  damage: 5
   nextMove: 0
   Player: {fileID: 2006446049}
   moveSpeed: 3
+  attackRange: 1.5
+  attackTime: 0.5
+  attackDelay: 1
 --- !u!95 &1813676012
 Animator:
   serializedVersion: 7
@@ -3435,8 +3484,7 @@ Transform:
   m_LocalPosition: {x: 20.6, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 519420032}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2006446050
@@ -3451,7 +3499,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453877f11c9f5a4f9a8354f95a0080b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
+  hp: 100
+  mp: 100
   maxSpeed: 7
+  damage: 10
+  attackRange: 1.5
+  attackBoxSize: {x: 3, y: 1.5}
+  minX: -8.5
+  maxX: 48.8
+  badEndingSceneName: BadEnding
+  hpBar: {fileID: 1382760755}
 --- !u!95 &2006446051
 Animator:
   serializedVersion: 7
@@ -3553,6 +3610,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1703165645}
   - {fileID: 534886218}
@@ -3564,3 +3622,4 @@ SceneRoots:
   - {fileID: 2006446049}
   - {fileID: 1813676010}
   - {fileID: 910984316}
+  - {fileID: 210987655}

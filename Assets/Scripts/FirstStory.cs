@@ -121,7 +121,7 @@ public class FirstStory : MonoBehaviour
                 Enemy.gameObject.SetActive(false);
                 break;
             default:
-                SceneManager.LoadScene("InGame");
+                SceneManager.LoadScene("Round1");
                 break;
         }
     }

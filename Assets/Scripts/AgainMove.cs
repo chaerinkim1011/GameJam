@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class AgainMove : MonoBehaviour
 {
     public int hp = 100;
     public int damage = 10;
@@ -27,7 +27,6 @@ public class EnemyMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     void Update()
@@ -54,7 +53,7 @@ public class EnemyMove : MonoBehaviour
             nextMove = -1;
         }
 
-        spriteRenderer.flipX = nextMove == 1;
+        spriteRenderer.flipX = nextMove != 1;
 
         if (isAttacking)
         {
@@ -75,11 +74,7 @@ public class EnemyMove : MonoBehaviour
             return;
         }
 
-        //Animation
-        if (Mathf.Abs(rigid.linearVelocity.x) < 0.3)
-            anim.SetBool("isWalking", false);
-        else
-            anim.SetBool("isWalking", true);
+        anim.SetBool("isWalking", Mathf.Abs(rigid.linearVelocity.x) >= 0.3f);
     }
 
     void FixedUpdate()
@@ -93,10 +88,7 @@ public class EnemyMove : MonoBehaviour
             return;
         }
 
-        //Move
         rigid.linearVelocity = new Vector2(nextMove * moveSpeed, rigid.linearVelocity.y);
-
-
     }
 
     void StartAttack()
@@ -108,7 +100,6 @@ public class EnemyMove : MonoBehaviour
         rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
         anim.SetBool("isWalking", false);
         anim.SetBool("isAttacking", true);
-        anim.CrossFade("Danso_Attack", 0f, 0, 0f);
 
         PlayerMove playerMove = Player.GetComponent<PlayerMove>();
 
@@ -127,10 +118,3 @@ public class EnemyMove : MonoBehaviour
         }
     }
 }
-
-
-
-//재귀함수: 자신을 스스로 호출하는 함수
-//딜레이 없이 사용하는 것은 아주 위험하다
-//그러므로 주어진 시간 지나고 지정된 함수를 실행하는 Invoke 사용
-

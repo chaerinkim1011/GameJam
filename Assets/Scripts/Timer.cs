@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     public TMP_Text TimeTxt;
     public int Min;
     public int Sec;
-    public float time = 180f;
+    public float time = 60f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
