@@ -419,11 +419,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.39, y: 2, z: -10}
+  m_LocalPosition: {x: 25.99, y: 0.38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2006446049}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -437,13 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98fccb0f850b4e4ca7d7a7cea177fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  cameraPosition: {x: 0, y: 0, z: -10}
-  playerTransform: {fileID: 2006446049}
-  center: {x: 0, y: 0}
-  mapSize: {x: 0, y: 0}
-  cameraMoveSpeed: 0
-  height: 0
-  width: 0
+  player: {fileID: 2006446049}
+  minX: -1.2
+  maxX: 41.6
 --- !u!1 &534886215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,6 +3205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9559cce896562b42af73c744419e9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  hp: 100
   nextMove: 0
   Player: {fileID: 2006446049}
   moveSpeed: 3
@@ -3435,8 +3432,7 @@ Transform:
   m_LocalPosition: {x: 20.6, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 519420032}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2006446050
@@ -3451,7 +3447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453877f11c9f5a4f9a8354f95a0080b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
+  hp: 100
+  mp: 100
   maxSpeed: 7
+  damage: 10
+  minX: -8.5
+  maxX: 48.8
 --- !u!95 &2006446051
 Animator:
   serializedVersion: 7
@@ -3553,6 +3554,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1703165645}
   - {fileID: 534886218}
