@@ -82,7 +82,7 @@ public class FirstStory : MonoBehaviour
                 MCharSmile.gameObject.SetActive(false);
                 break;
             case 7:
-                Name.text = "단소살인마";
+                Name.text = "???";
                 Enemy.gameObject.SetActive(true);
                 break;
             case 8:
