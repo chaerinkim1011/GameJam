@@ -145,6 +145,7 @@ public class SecondStory : MonoBehaviour
                 JapSang.gameObject.SetActive(false);
                 break;
             default:
+                SceneManager.LoadScene("Round2");
                 break;
         }
     }

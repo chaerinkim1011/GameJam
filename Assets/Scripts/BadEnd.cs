@@ -65,6 +65,7 @@ public class BadEnd : MonoBehaviour
                 Name.text = "해설";
                 break;
             default:
+                SceneManager.LoadScene("Main");
                 break;
         }
     }

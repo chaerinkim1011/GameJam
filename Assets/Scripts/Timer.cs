@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        string curScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -21,6 +21,20 @@ public class Timer : MonoBehaviour
         Min = (int)time / 60;
         TimeTxt.text = Min.ToString("00") + ":" + Sec.ToString("00");
         if (time > 0) time -= Time.deltaTime;
-        else SceneManager.LoadScene("2ndStory");
+        else
+        {
+            if (SceneManager.GetActiveScene().name == "Round1")
+            {
+                SceneManager.LoadScene("2ndStory");
+            }
+            else if(SceneManager.GetActiveScene().name == "Round2")
+            {
+                SceneManager.LoadScene("3rdStory");
+            }
+            else if(SceneManager.GetActiveScene().name == "Round3")
+            {
+                SceneManager.LoadScene("HappyEnding");
+            }
+        }
     }
 }

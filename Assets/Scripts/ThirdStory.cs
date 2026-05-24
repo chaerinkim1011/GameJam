@@ -94,6 +94,7 @@ public class ThirdStory : MonoBehaviour
                 MCharMad.gameObject.SetActive(true);
                 break;
             default:
+                SceneManager.LoadScene("Round3");
                 break;
         }
     }

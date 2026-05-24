@@ -108,6 +108,7 @@ public class HappyEnd : MonoBehaviour
                 Name.text = "해설ㅠㅠ";
                 break;
             default:
+                SceneManager.LoadScene("Main");
                 break;
         }
     }
