@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemyMove enemyPrefab;
+    public GameObject enemyPrefab;
     public Transform player;
     public Vector2 spawnPosition = new Vector2(48f, -1.11f);
     public float spawnDelay = 3f;
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyPrefab == null)
             return;
 
-        enemyTemplate = Instantiate(enemyPrefab.gameObject, spawnPosition, Quaternion.identity);
+        enemyTemplate = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         enemyTemplate.SetActive(false);
     }
 
@@ -42,9 +42,13 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemyObject = Instantiate(enemyTemplate, spawnPosition, Quaternion.identity);
         enemyObject.SetActive(true);
         EnemyMove enemy = enemyObject.GetComponent<EnemyMove>();
+        AgainMove again = enemyObject.GetComponent<AgainMove>();
 
         if (enemy != null && player != null)
             enemy.Player = player;
+
+        if (again != null && player != null)
+            again.Player = player;
     }
 
     void OnDrawGizmos()

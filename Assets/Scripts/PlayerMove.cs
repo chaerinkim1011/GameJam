@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     public float minX = -8.5f;
     public float maxX = 48.8f;
     public string badEndingSceneName = "BadEnding";
+    public HP hpBar;
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
@@ -29,6 +30,12 @@ public class PlayerMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        if (hpBar == null)
+            hpBar = FindAnyObjectByType<HP>();
+
+        if (hpBar != null)
+            hpBar.SetMaxHP(hp);
     }
 
     void Update()
@@ -84,6 +91,9 @@ public class PlayerMove : MonoBehaviour
     {
         hp -= damage;
 
+        if (hpBar != null)
+            hpBar.SetHP(hp);
+
         if (hp <= 0)
         {
             hp = 0;
@@ -93,7 +103,7 @@ public class PlayerMove : MonoBehaviour
 
     void AttackEnemy()
     {
-        EnemyMove target = null;
+        Component target = null;
         float closestDistance = attackRange;
         float direction = spriteRenderer.flipX ? -1f : 1f;
         Vector2 attackCenter = (Vector2)transform.position + Vector2.right * direction * (attackRange * 0.5f);
@@ -102,21 +112,25 @@ public class PlayerMove : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             EnemyMove foundEnemy = hit.GetComponent<EnemyMove>();
+            AgainMove foundAgain = hit.GetComponent<AgainMove>();
 
-            if (foundEnemy == null)
+            if (foundEnemy == null && foundAgain == null)
                 continue;
 
-            float distance = Vector2.Distance(transform.position, foundEnemy.transform.position);
+            Transform targetTransform = foundEnemy != null ? foundEnemy.transform : foundAgain.transform;
+            float distance = Vector2.Distance(transform.position, targetTransform.position);
 
             if (distance > closestDistance)
                 continue;
 
             closestDistance = distance;
-            target = foundEnemy;
+            target = foundEnemy != null ? foundEnemy : foundAgain;
         }
 
-        if (target != null)
-            target.SetDamage(damage);
+        if (target is EnemyMove enemyMove)
+            enemyMove.SetDamage(damage);
+        else if (target is AgainMove againMove)
+            againMove.SetDamage(damage);
     }
 
     void OnDrawGizmosSelected()

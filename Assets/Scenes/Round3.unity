@@ -1320,7 +1320,7 @@ MonoBehaviour:
   TimeTxt: {fileID: 991768360}
   Min: 0
   Sec: 0
-  time: 180
+  time: 60
 --- !u!1 &1007261333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,8 +2240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24d3c1164b35b46b55770cce40ffa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HP
-  MaxHP: 100
-  currentHP: 100
+  MaxHP: 200
+  currentHP: 200
   HPBar: {fileID: 1382760754}
 --- !u!1 &1422688080
 GameObject:
@@ -3206,9 +3206,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
   hp: 100
+  damage: 5
   nextMove: 0
   Player: {fileID: 2006446049}
   moveSpeed: 3
+  attackRange: 1.5
+  attackTime: 0.5
+  attackDelay: 1
 --- !u!95 &1813676012
 Animator:
   serializedVersion: 7
@@ -3451,8 +3455,11 @@ MonoBehaviour:
   mp: 100
   maxSpeed: 7
   damage: 10
+  attackRange: 1.5
   minX: -8.5
   maxX: 48.8
+  badEndingSceneName: BadEnding
+  hpBar: {fileID: 1382760755}
 --- !u!95 &2006446051
 Animator:
   serializedVersion: 7
@@ -3550,6 +3557,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116897188}
   m_CullTransparentMesh: 1
+--- !u!1 &210987654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210987655}
+  - component: {fileID: 210987656}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210987655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210987654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48, y: -1.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210987656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210987654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c62dded7f0a4bb49b42f55a0e92f3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemyPrefab: {fileID: 1813676006}
+  player: {fileID: 2006446049}
+  spawnPosition: {x: 48, y: -1.11}
+  spawnDelay: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3566,3 +3621,4 @@ SceneRoots:
   - {fileID: 2006446049}
   - {fileID: 1813676010}
   - {fileID: 910984316}
+  - {fileID: 210987655}
